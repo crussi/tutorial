@@ -6,10 +6,11 @@
 void readLetterDemo(void);
 void moveCursorDemo(void);
 void moveCursorDemo2(void);
+void readLoopDemo(void);
 
 int main(void)
 {
-    moveCursorDemo2();
+    readLoopDemo();
     return 0;
 }
 
@@ -114,4 +115,20 @@ void moveCursorDemo2(void)
 
     curs_set(1);  // restore cursor
     endwin();
+}
+
+//get characters in a loop
+void readLoopDemo(void)
+{
+    char ch;
+    initscr();
+
+    noecho();
+    while ((ch = getch()) != '\n')
+    {
+        printw("You typed: %c\n", ch);
+        refresh();
+    }
+    endwin();
+
 }
